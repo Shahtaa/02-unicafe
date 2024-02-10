@@ -9,12 +9,20 @@ const Statistics = (props) => {
   return (
     <div>
       <h1>statistics</h1>
-      <div>good {good}</div>
-      <div>neutral {neutral}</div>
-      <div>bad {bad}</div>
-      <div>all {all}</div>
-      <div>average {average}</div>
-      <div>positive {positive} %</div>
+      {all > 0 ? (
+        // jos palautteita on jo annettu:
+        <>
+          <div>good {good}</div>
+          <div>neutral {neutral}</div>
+          <div>bad {bad}</div>
+          <div>all {all}</div>
+          <div>average {average}</div>
+          <div>positive {positive} %</div>
+        </>
+      ) : (
+        // palautteita ei annettu:
+        <div>No feedback given</div>
+      )}
     </div>
   );
 };
