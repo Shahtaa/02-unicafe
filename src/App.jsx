@@ -5,7 +5,7 @@ const App = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-  const all = good + neutral + bad;
+
   return (
     <div>
       <h1>give feedback</h1>
@@ -18,21 +18,10 @@ const App = () => {
       <div>good {good}</div>
       <div>neutral {neutral}</div>
       <div>bad {bad}</div>
-      <div>all {all}</div>
+      <div>all {good + neutral + bad}</div>
+      <div>average {(good - bad) / (good + neutral + bad)}</div>
+      <div>positiivinen {good / (good + neutral + bad) * 100} %</div>
 
-      {all > 0 ? (
-        // Näytä keskiarvo ja positiivinen prosenttiosuus jos palautetta on annettu
-        <>
-          <div>average {(good - bad) / all}</div>
-          <div>positive {good / all * 100} %</div>
-        </>
-      ) : (
-        // Näytä jos palautetta ei ole annettu
-        <>
-          <div>average</div>
-          <div>positive</div>
-        </>
-      )}
     </div>
   );
 };
